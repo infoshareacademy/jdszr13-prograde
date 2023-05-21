@@ -2,14 +2,14 @@
 select 
 	"AIRLINE NAME" 
 	, sum("PASSENGERS TO INDIA" + "PASSENGERS FROM INDIA") total_passangers
-from airlinewise_monthly_international_air_traffic amiat 
+from airlinewise a 
 group by "AIRLINE NAME" 
 order by total_passangers desc --pasazerowie
 
 select 
 	"AIRLINE NAME" 
 	, sum("FREIGHT TO INDIA" + "FREIGHT FROM INDIA")::int total_freight_tonnes
-from airlinewise_monthly_international_air_traffic amiat 
+from airlinewise a 
 group by "AIRLINE NAME" 
 order by total_freight_tonnes desc --ladunek
 
@@ -21,7 +21,7 @@ from(
 		"AIRLINE NAME" 
 		, sum("PASSENGERS TO INDIA" + "PASSENGERS FROM INDIA") total_passangers
 		, sum("FREIGHT TO INDIA" + "FREIGHT FROM INDIA")::int total_freight_tonnes
-	from airlinewise_monthly_international_air_traffic amiat 
+	from airlinewise a 
 	group by "AIRLINE NAME"
 ) a -- wspolczynnik jest wysoki dodatni oznaczajacy wysoki poziom korelacji liniowej pomiedzy iloscia pasazerow i ladunku co wskazuje na niski poziom wyspecjalizowania w rodzaju przewozow
 
@@ -32,40 +32,37 @@ from(
 select 
 	city2 city
 	, sum("PASSENGERS FROM CITY1 TO CITY2") passangers_to
-from citypairwise_quarterly_international cqi 
+from citypairwise c 
 group by city2
 order by passangers_to desc --najpopularniejsze cele w indiach
 
 select 
 	city1 city
 	, sum("PASSENGERS FROM CITY2 TO CITY1") passangers_to
-from citypairwise_quarterly_international cqi 
+from citypairwise c 
 group by city1 
 order by passangers_to desc --najpopularniejsze cele zagraniczne
 
 select sum("PASSENGERS FROM CITY1 TO CITY2") - sum("PASSENGERS FROM CITY2 TO CITY1") diff_domestic_foreign 
-from citypairwise_quarterly_international cqi --2,295,487 wiecej pasazerow polecialo z miast indyjskich do miast zagranicznych niz z miast zagranicznych do indyjskich
+from citypairwise c --2,295,487 wiecej pasazerow polecialo z miast indyjskich do miast zagranicznych niz z miast zagranicznych do indyjskich
 
-select * from citypairwise_quarterly_international cqi 
+select * from citypairwise c 
 order by "PASSENGERS FROM CITY1 TO CITY2" desc
 
-select * from citypairwise_quarterly_international cqi 
+select * from citypairwise c 
 order by "PASSENGERS FROM CITY2 TO CITY1"  desc
 
 --zdecydowanie najpopularniejsze polaczenie wystepuje pomiedzy Dubai i Mumbai
 
 
 ---------------------------
-
-select * from countrywise_quarterly_international_air_traffic cqiat 
-
 select 
 	"COUNTRY NAME" 
 	, sum("PASSENGERS TO INDIA") passangers_to 
 	, sum("PASSENGERS FROM INDIA") passangers_from
 	, sum("FREIGHT TO INDIA")::int freight_to
 	, sum("FREIGHT FROM INDIA")::int freight_from
-from countrywise_quarterly_international_air_traffic cqiat 
+from countrywise ct 
 group by "COUNTRY NAME" 
 order by freight_from desc
 
