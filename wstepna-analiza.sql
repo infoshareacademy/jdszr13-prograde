@@ -177,3 +177,7 @@ group by "AIRLINE NAME" ,"YEAR"
 order by "AIRLINE NAME", "YEAR" DESC
 --duże firmy przewozowe tracą procentowy udział w rynku na rzecz małych
 --przewoźników
+
+select "CARRIER TYPE" , count(distinct "AIRLINE NAME"), sum("PASSENGERS TO INDIA" + "PASSENGERS FROM INDIA") from airlinewise a
+group by "CARRIER TYPE" 
+-- podzial na zagranicznych i krajowych pod wzgledem ilosci linii lotniczych i sumie pasazerow
