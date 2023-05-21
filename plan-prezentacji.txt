@@ -1,0 +1,12 @@
+Dashboard 1 wstep:
+1. Najbardziej popularne kierunki miedzykrajowe.
+2. Najbardziej atrakcyjne polaczenia miedzymiastowe.
+3. 10 najwiekszych przewoznikow.
+4. Najpopularniejsze miesiace.
+
+Dashboard 2 rozwiniecie:
+1/2. Porownac przewoznikow krajowych z zagranicznymi pod wzgledem ilosci pasazerow i przewozu towarow z uwzglednieniem tendencji wzrostowej(czy krajowi czy zagraniczni przejmuja rynek z roku na rok).
+3/4. Pokazac ze najwieksi przewoznicy krajowi traca rynek pasazerow i towarow.
+
+Dashboard 3 wnioski:
+1/4 Korelacje i nie wiadomo jeszcze pomyslimy.
