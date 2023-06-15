@@ -1,0 +1,3 @@
+select "COUNTRY NAME" , sum("PASSENGERS TO INDIA" + "PASSENGERS FROM INDIA") PASSANGERS from countrywise c
+group by "COUNTRY NAME" 
+order by PASSANGERS DESC
