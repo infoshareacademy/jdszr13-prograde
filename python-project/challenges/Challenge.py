@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 class Challenge:
 
@@ -43,18 +42,21 @@ class Challenge:
                     self.increase_pokemon_individual_score(i)
         return (self.total_wins, self.player_pokemons_scores)
 
-    def show_results(self):
-        x = self.player_pokemons_scores.keys()
-        y = self.player_pokemons_scores.values()
+    # def show_results(self):
+    #     x = self.player_pokemons_scores.keys()
+    #     y = self.player_pokemons_scores.values()
                           
-        fig, ax = plt.subplots()
-
-        ax.bar(x, y, color='orange')
+    #     # fig, ax = plt.subplots()
         
-        if self.type_of_challange == 'hp':
-            ax.set_title(f'Number of wins in the endurance challenge by pokemon for team: {self.team_name}.')
-        else: 
-            ax.set_title(f'Number of wins in {self.type_of_challange} challenge.')
+    #     plot = plt.bar(x,y)
+    #     plt.title(f'Challenge: {self.type_of_challange}')
+    #     return plot
 
-        plt.show()
+    #     # if self.type_of_challange == 'hp':
+    #     #     fig.suptitle(f'Number of wins in the endurance challenge for team: {self.team_name}.')
+    #     # else: 
+    #     #     fig.suptitle(f'Number of wins in {self.type_of_challange} challenge for team: {self.team_name}.')
+
+    #     # ax.bar(x, y, color='orange')
+
 
