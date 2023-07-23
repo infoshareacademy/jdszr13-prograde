@@ -10,7 +10,7 @@ class Challenges:
     '''
 
     pokemon_score = {}
-    scores_from_all_challenges = {}
+    scores_from_all_challenges = {'attack': {},'defense':{}, 'hp':{}, 'sp_attack':{}, 'sp_defense':{}, 'speed':{}}
     current_challenge_wins = 0
     total_wins = 0
     challenge_types = ['attack', 'defense', 'hp', 'sp_attack', 'sp_defense', 'speed']
@@ -24,6 +24,7 @@ class Challenges:
         return self.possible_opponents.sample(1)
     
     def create_pokemon_individual_score_table(self):
+        self.pokemon_score = {}
         for i in range(len(self.player_team)):
             self.pokemon_score[self.player_team['name'].iloc[i]] = 0
 
@@ -58,16 +59,17 @@ class Challenges:
         for challenge_type in self.challenge_types:
             score = self.perform_challenge(challenge_type)
             self.total_wins += score[0]
-            print(score[1])
-            self.scores_from_all_challenges[challenge_type] = score[1]
-            print(self.scores_from_all_challenges)
-
+            print(score)
+            # print(self.scores_from_all_challenges)
+            self.scores_from_all_challenges[challenge_type].update(score[1]) 
+            
         percentage_of_wins = int(self.total_wins/3600*100)
         print(f'Out of possible 3600 wins, team {self.team_name} achieved: {self.total_wins}. That is {percentage_of_wins}%.')
         self.clear_total_score()
         self.draw_plots()
 
     def draw_plots(self):
+        plt.clf()
         fig, axs = plt.subplots(2,3, figsize=(20,10))
         x = self.scores_from_all_challenges['attack'].keys()
 
@@ -86,22 +88,6 @@ class Challenges:
         axs[1, 2].set_title('Speed Challenge')
 
         fig.suptitle(f'Team {self.team_name} Results')
-
-    # def show_results(self):
-    #     x = self.player_pokemons_scores.keys()
-    #     y = self.player_pokemons_scores.values()
-                          
-    #     # fig, ax = plt.subplots()
-        
-    #     plot = plt.bar(x,y)
-    #     plt.title(f'Challenge: {self.type_of_challange}')
-    #     return plot
-
-    #     # if self.type_of_challange == 'hp':
-    #     #     fig.suptitle(f'Number of wins in the endurance challenge for team: {self.team_name}.')
-    #     # else: 
-    #     #     fig.suptitle(f'Number of wins in {self.type_of_challange} challenge for team: {self.team_name}.')
-
-    #     # ax.bar(x, y, color='orange')
+        plt.show()
 
 
