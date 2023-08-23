@@ -1,0 +1,14 @@
+prezentacja:
+1. przedstawienie problemu ze znalezieniem najlepszej druzyny - najlepsza druzyna nic nie da jezeli trener bedzie kiepski
+
+2.krotki zarys bazy danych i najlepszych pokemonow, moze jakies wykresy
+
+3. przedstawienie druzyn: pseudonim trenera i jego pokemony
+
+4. omowienie zasad badania: walki z losowymi rywalami i challenge
+
+5. uruchomienie walki jezeli bedzie szybko
+
+6. omowienie wykresow powstalych w wyniku rezultatow walk i challendzy
+
+7.pokazanie opcji ze kazdy moze wystawic swoja druzyne do walki, nawet losową
