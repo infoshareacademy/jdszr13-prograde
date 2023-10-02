@@ -1,0 +1,21 @@
+sprawdzic czy jakies kolumny sa bez sensu
+oczyscic braki danych
+sprawdzic korelacje zmiennych i ewentualnie usunac jak jest jakas bardzo wysoka korelacja
+
+
+- Przygotowanie danych (Sprawdzić czy jakieś kolumny są bez sensu, oczyścić braki danych, sprawdzić korelacje zmiennych, usunięcie punktów odstających)
+- Wybieramy model
+- Wrzucamy dane do modelu
+- Zastosowanie hiperparametrów (max_depth itp), gridsearch albo randomsearch, najlepiej Optuna
+- Wyniki badań w formie wykresów, (metryki danych - macierz błędów czyli classification report(Są też fajniejsze biblioteki do tworzenia takiego raport))
+- Przyrost wartości biznesowej (Porównać z rozwiązaniami stosowanymi obecnie i podać zalety naszego rozwiązania)
+- Zbadanie wpływu PCA na wyniki - ściśnięcie wszystkich parametrów w jeden i przedstawić na wykresie 2D
+- Uwzględnienie zapotrzebowania na wartości wprowadzone przez użytkownika (interfejs)
+
+
+Poczytać o upsamplingu i downsamplingu
+
+Xgboosta zrobic,
+pojedyncze drzewa dla wszystkich,
+Zobaczyc LigthGBM
+regularyzacja L1 L2
